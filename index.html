@@ -176,7 +176,7 @@
             </div>
             
             <p class="text-sm sm:text-base text-cyber-text leading-relaxed">
-                I build <span class="text-cyber-accent font-semibold">AI agents and automation systems</span> that solve real business problems — from deployed conversational agents and multi-agent content pipelines to no-code workflow automations. 
+                I build <span class="text-cyber-accent font-semibold">AI agents and automation systems</span> that solve real business problems — from deployed conversational agents and multi-agent content pipelines to full-stack PropTech and no-code workflow automations. 
             </p>
             <p class="text-sm sm:text-base text-cyber-text leading-relaxed">
                 My primary focus is <span class="text-cyber-alt font-semibold">agentic AI</span>: systems that make decisions, invoke specialized tools, and complete complex multi-step tasks autonomously using <span class="text-cyber-bright font-mono text-xs px-1.5 py-0.5 rounded bg-slate-800 border border-slate-700">LangGraph</span>, <span class="text-cyber-bright font-mono text-xs px-1.5 py-0.5 rounded bg-slate-800 border border-slate-700">CrewAI</span>, and <span class="text-cyber-bright font-mono text-xs px-1.5 py-0.5 rounded bg-slate-800 border border-slate-700">OpenAI</span>. I don't just connect API endpoints — I architect, deploy, and ship working, reliable AI workflows.
@@ -200,6 +200,39 @@
             </div>
 
             <div class="grid grid-cols-1 gap-6" id="projects-container">
+
+                <!-- Project 0: Dubai Prime Properties Portal (NEW ADDITION) -->
+                <div class="project-card glass-panel rounded-xl p-6 border-glow-hover space-y-4" data-category="agent">
+                    <div class="flex flex-wrap items-center justify-between gap-2">
+                        <h3 class="text-lg font-bold text-cyber-bright flex items-center gap-2 font-mono">
+                            <span>🏛️ Dubai Prime Properties — Autonomous Real Estate Portal</span>
+                        </h3>
+                        <span class="px-2 py-0.5 text-[10px] font-mono rounded bg-cyber-alt/10 text-cyber-alt border border-cyber-alt/30">LIVE DEMO</span>
+                    </div>
+
+                    <div class="flex flex-wrap gap-1.5 font-mono text-xs">
+                        <span class="px-2 py-0.5 rounded bg-slate-900/80 text-cyber-accent border border-cyber-accent/20">HTML5/CSS3</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-900/80 text-cyber-accent border border-cyber-accent/20">GitHub Pages</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-900/80 text-cyber-accent border border-cyber-accent/20">Mortgage Engine</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-900/80 text-cyber-accent border border-cyber-accent/20">Comparison Matrix</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-900/80 text-cyber-alt border border-cyber-alt/20">PropTech Web Architecture</span>
+                    </div>
+
+                    <p class="text-sm text-cyber-text leading-relaxed">
+                        An end-to-end luxury real estate web application built for the Dubai market. Features an integrated mortgage analytics engine, side-by-side property comparison matrix, lead generation workflows, and structured frontend architecture optimized for multi-agent scraper & auto-listing backend integrations.
+                    </p>
+
+                    <div class="pt-2 flex flex-wrap gap-4 items-center">
+                        <a href="https://nimranhussi-afk.github.io/dubai-prime-properties/" target="_blank" rel="noopener noreferrer" 
+                           class="inline-flex items-center gap-2 text-xs font-mono text-cyber-alt hover:text-cyber-bright transition-all">
+                            <i class="fa-solid fa-globe"></i> [ Live Portal Demo ]
+                        </a>
+                        <a href="https://github.com/nimranhussi-afk/dubai-prime-properties" target="_blank" rel="noopener noreferrer" 
+                           class="inline-flex items-center gap-2 text-xs font-mono text-cyber-accent hover:text-cyber-bright hover:underline transition-all">
+                            <i class="fa-brands fa-github"></i> [ Source Code ]
+                        </a>
+                    </div>
+                </div>
 
                 <!-- Project 1: CodeSage -->
                 <div class="project-card glass-panel rounded-xl p-6 border-glow-hover space-y-4" data-category="agent">
@@ -499,25 +532,21 @@
                 btn.className = "px-3 py-1 rounded-md bg-cyber-surface text-cyber-muted border border-cyber-border hover:text-cyber-bright transition-all";
             });
 
-            // Highlight Active Button
+            // Highlight Active Button & Show/Hide Cards
             if (category === 'all') {
                 btnAll.className = "px-3 py-1 rounded-md bg-cyber-accent/20 text-cyber-accent border border-cyber-accent/40 hover:bg-cyber-accent/30 transition-all";
+                cards.forEach(card => card.style.display = 'block');
             } else if (category === 'agent') {
                 btnAgent.className = "px-3 py-1 rounded-md bg-cyber-accent/20 text-cyber-accent border border-cyber-accent/40 hover:bg-cyber-accent/30 transition-all";
+                cards.forEach(card => {
+                    card.style.display = card.getAttribute('data-category') === 'agent' ? 'block' : 'none';
+                });
             } else if (category === 'automation') {
                 btnAutomation.className = "px-3 py-1 rounded-md bg-cyber-accent/20 text-cyber-accent border border-cyber-accent/40 hover:bg-cyber-accent/30 transition-all";
+                cards.forEach(card => {
+                    card.style.display = card.getAttribute('data-category') === 'automation' ? 'block' : 'none';
+                });
             }
-
-            // Filter Projects Animation
-            cards.forEach(card => {
-                if (category === 'all' || card.getAttribute('data-category') === category) {
-                    card.style.display = 'block';
-                    card.style.opacity = '1';
-                } else {
-                    card.style.display = 'none';
-                    card.style.opacity = '0';
-                }
-            });
         }
     </script>
 </body>
